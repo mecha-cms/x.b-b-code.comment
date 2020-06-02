@@ -1,0 +1,12 @@
+---
+title: BBCode Comment
+description: Using BBCode syntax in comments.
+author: Taufik Nurrohman
+type: Markdown
+version: 0.0.0
+
+use:
+  '.\lot\x\b-b-code': 1
+  '.\lot\x\comment': 1
+  '.\lot\x\comment.hint': 0
+...
