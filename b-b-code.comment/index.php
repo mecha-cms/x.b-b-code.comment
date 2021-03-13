@@ -1,6 +1,6 @@
-<?php namespace _\lot\x\b_b_code;
+<?php namespace x;
 
-function comment($any) {
+function BBCode__comment($any) {
     foreach ($_POST['comment'] ?? [] as $k => $v) {
         if (!\is_string($v)) {
             continue;
@@ -24,9 +24,9 @@ function comment($any) {
     $_POST['comment']['type'] = 'BBCode';
 }
 
-\Route::hit('.comment/*', __NAMESPACE__ . "\\comment", 0);
+\Route::hit('.comment/*', __NAMESPACE__ . "\\BBCode__comment", 0);
 
 // Optional `comment.hint` extension
 if (null !== \State::get("x.comment\\.hint")) {
-    \State::set("x.comment\\.hint.hint", 'All HTML tags will be removed. Use <a href="https://github.com/mecha-cms/x.b-b-code" target="_blank">BBCode</a> syntax to style your comment body.');
+    \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://github.com/mecha-cms/x.b-b-code" target="_blank">BBCode</a> syntax to style your comment body.');
 }
