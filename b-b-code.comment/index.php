@@ -1,6 +1,6 @@
 <?php namespace x;
 
-function BBCode__comment($any) {
+function b_b_code__comment($any) {
     foreach ($_POST['comment'] ?? [] as $k => $v) {
         if (!\is_string($v)) {
             continue;
@@ -24,7 +24,7 @@ function BBCode__comment($any) {
     $_POST['comment']['type'] = 'BBCode';
 }
 
-\Route::hit('.comment/*', __NAMESPACE__ . "\\BBCode__comment", 0);
+\Route::hit('.comment/*', __NAMESPACE__ . "\\b_b_code__comment", 0);
 
 // Optional `comment.hint` extension
 if (null !== \State::get("x.comment\\.hint")) {

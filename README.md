@@ -4,7 +4,7 @@ BBCode Comment Extension for Mecha
 Release Notes
 -------------
 
-### main
+### 1.1.0
 
  - [x] [@mecha-cms/mecha#96](https://github.com/mecha-cms/mecha/issues/96)
 
