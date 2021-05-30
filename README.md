@@ -1,5 +1,5 @@
-BBCode Comment Extension for Mecha
-==================================
+BBCode Comment Extension for [Mecha](https://github.com/mecha-cms/mecha)
+========================================================================
 
 Release Notes
 -------------
