@@ -9,7 +9,7 @@ function b_b_code__comment($content, $path, $query, $hash) {
             continue;
         }
         if (false !== \strpos($v, '[/code]')) {
-            $parts = \preg_split('/(\[code(=[\w-:.]+)?\][\s\S]*?\[\/code\])/', $v, -1, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
+            $parts = \preg_split('/(\[code(?:=[-.:\w]+)?\][\s\S]*?\[\/code\])/', $v, -1, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
             $v = ""; // Reset!
             foreach ($parts as $part) {
                 if ('[/code]' === \substr($part, -7)) {
@@ -33,4 +33,8 @@ function b_b_code__comment($content, $path, $query, $hash) {
 // Optional `comment.hint` extension
 if (null !== \State::get("x.comment\\.hint")) {
     \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://github.com/mecha-cms/x.b-b-code" target="_blank">BBCode</a> syntax to style your comment body.');
+}
+
+if (\defined("\\TEST") && 'x.b-b-code.comment' === \TEST) {
+    require __DIR__ . \D . 'test.php';
 }
