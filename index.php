@@ -1,12 +1,15 @@
 <?php namespace x;
 
-function b_b_code__comment($any) {
+function b_b_code__comment($content, $path, $query, $hash) {
+    if ('POST' !== $_SERVER['REQUEST_METHOD']) {
+        return $content;
+    }
     foreach ($_POST['comment'] ?? [] as $k => $v) {
         if (!\is_string($v)) {
             continue;
         }
         if (false !== \strpos($v, '[/code]')) {
-            $parts = \preg_split('/(\[code(=[\w-:.]+)?\][\s\S]*?\[\/code\])/', $v, null, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
+            $parts = \preg_split('/(\[code(=[\w-:.]+)?\][\s\S]*?\[\/code\])/', $v, -1, \PREG_SPLIT_NO_EMPTY | \PREG_SPLIT_DELIM_CAPTURE);
             $v = ""; // Reset!
             foreach ($parts as $part) {
                 if ('[/code]' === \substr($part, -7)) {
@@ -22,9 +25,10 @@ function b_b_code__comment($any) {
     }
     // Force comment type to `BBCode`
     $_POST['comment']['type'] = 'BBCode';
+    return $content;
 }
 
-\Route::hit('.comment/*', __NAMESPACE__ . "\\b_b_code__comment", 0);
+\Hook::set('route.comment', __NAMESPACE__ . "\\b_b_code__comment", 90);
 
 // Optional `comment.hint` extension
 if (null !== \State::get("x.comment\\.hint")) {

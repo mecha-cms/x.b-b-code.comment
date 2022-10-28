@@ -1,0 +1,9 @@
+{
+  "description": "Using BBCode syntax in comments.",
+  "license": "GPL-3.0-or-later",
+  "name": "mecha-cms/x.b-b-code.comment",
+  "require": {
+    "mecha-cms/x.b-b-code": "^3.0.0",
+    "mecha-cms/x.comment": "^2.0.0"
+  }
+}
