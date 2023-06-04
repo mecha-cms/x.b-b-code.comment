@@ -1,6 +1,6 @@
-<?php namespace x;
+<?php namespace x\b_b_code__comment;
 
-function b_b_code__comment($content, $path, $query, $hash) {
+function route($content, $path, $query, $hash) {
     if ('POST' !== $_SERVER['REQUEST_METHOD']) {
         return $content;
     }
@@ -28,7 +28,7 @@ function b_b_code__comment($content, $path, $query, $hash) {
     return $content;
 }
 
-\Hook::set('route.comment', __NAMESPACE__ . "\\b_b_code__comment", 90);
+\Hook::set('route.comment', __NAMESPACE__ . "\\route", 90);
 
 // Optional `comment.hint` extension
 if (null !== \State::get("x.comment\\.hint")) {
