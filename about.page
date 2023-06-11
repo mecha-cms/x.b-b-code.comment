@@ -8,5 +8,5 @@ type: Markdown
 version: 2.0.0
 ...
 
-This extension helps you to make the comment extension accept user input in the form of BBCode syntax. All HTML code
-written in the comment body will be removed, except HTML codes that are written inside the code block syntax.
+This extension allows you to make the comment extension accept user input in the form of BBCode syntax. All HTML code
+written in the comment body will be removed, except for HTML code written in code block syntax.

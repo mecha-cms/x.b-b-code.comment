@@ -31,8 +31,8 @@ function route__comment($content, $path, $query, $hash) {
 \Hook::set('route.comment', __NAMESPACE__ . "\\route__comment", 90);
 
 // Optional `comment.hint` extension
-if (null !== \State::get("x.comment\\.hint")) {
-    \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://github.com/mecha-cms/x.b-b-code" target="_blank">BBCode</a> syntax to style your comment body.');
+if (isset($state->x->{'comment.hint'})) {
+    \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://www.bbcode.org/reference.php" target="_blank">BBCode</a> syntax to style your comment body.');
 }
 
 if (\defined("\\TEST") && 'x.b-b-code.comment' === \TEST && \is_file($test = __DIR__ . \D . 'test.php')) {
