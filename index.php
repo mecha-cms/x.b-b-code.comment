@@ -32,7 +32,7 @@ function route__comment($content, $path, $query, $hash) {
 
 // Optional `comment.hint` extension
 if (isset($state->x->{'comment.hint'})) {
-    \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://www.bbcode.org/reference.php" target="_blank">BBCode</a> syntax to style your comment body.');
+    \State::set("x.comment\\.hint.content", 'All HTML tags will be removed. Use <a href="https://www.bbcode.org/reference.php" tabindex="-1" target="_blank">BBCode</a> syntax to style your comment body.');
 }
 
 if (\defined("\\TEST") && 'x.b-b-code.comment' === \TEST && \is_file($test = __DIR__ . \D . 'test.php')) {
